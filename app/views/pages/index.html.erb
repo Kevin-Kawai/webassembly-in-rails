@@ -1,1 +1,18 @@
+<script src='hello3.js'></script>
+<button class="myCbutton">This C button</button>
+
+<script>
+  document.querySelector('.myCbutton').addEventListener('click',function() {
+    //var c_start = performance.now();
+    console.time("C myCode");
+    var cResult = Module.ccall('myFunction', //name of C function
+                              'number',         //return type  
+                              ['number'],         //argument type 
+                              [40]);        //arguments
+    console.log(cResult);
+    console.timeEnd("C myCode");
+    //var c_end = performance.now();
+    //console.log("C ran in " + (c_end - c_start) + " milliseconds.");
+  });
+</script>
 <h1>This is the root page</h1>
